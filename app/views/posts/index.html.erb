@@ -1,0 +1,12 @@
+<h1>Posts</h1>
+<%= link_to "Create post", "/posts/new" %>
+<br>
+<br>
+<% @posts.each do |post| %>
+  <% if current_user %>
+    <%= @users.find(post.user_id).email %>
+  <% end %>
+  <h2><%= post.title %></h2>
+  <h3><%= post.body %></h3>
+  <br>
+<% end %>
